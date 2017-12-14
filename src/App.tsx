@@ -9,7 +9,9 @@ class App extends React.Component {
         <div className="App-header">
           <h2>Trading Sandbox</h2>
         </div>
-        <Accounts></Accounts>
+        <div className="container-fluid">
+          <Accounts></Accounts>
+        </div>
       </div>
     );
   }

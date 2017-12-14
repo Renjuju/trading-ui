@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Trading from '../services/trading';
+import './Accounts.css';
 
 interface State {
   accounts: [{
@@ -70,7 +71,8 @@ class Accounts extends React.Component<Props, State> {
     return (
 
       <div>
-      <table>
+      <h1 className='initial'>Current holding</h1>
+      <table className="table">
         <tbody>
         <tr>
           <th>Currency</th>
