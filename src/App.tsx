@@ -10,7 +10,7 @@ class App extends React.Component {
           <h2>Trading Sandbox</h2>
         </div>
         <div className="container-fluid">
-          <Accounts></Accounts>
+          <Accounts/>
         </div>
       </div>
     );

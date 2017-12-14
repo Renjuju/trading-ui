@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Trading from '../services/trading';
 import './Accounts.css';
+import DailyStats from './DailyStats';
 
 interface State {
   accounts: [{
@@ -8,7 +9,7 @@ interface State {
     balance: string,
     available: string,
     hold: string
-  }]
+  }];
 }
 
 interface Props {
@@ -20,7 +21,7 @@ class Accounts extends React.Component<Props, State> {
   public tradingData: number;
   public state: State = {
     accounts: [{
-      currency: '0',
+      currency: '',
       balance: '',
       available: '',
       hold: ''
@@ -31,12 +32,12 @@ class Accounts extends React.Component<Props, State> {
     super(props);
     this.state = {
       accounts: [{
-        currency: '0',
+        currency: '',
         balance: '',
         available: '',
         hold: ''
       }]
-    }
+    };
   }
 
   componentWillMount() {
@@ -49,29 +50,10 @@ class Accounts extends React.Component<Props, State> {
   }
 
   render() {
-    let tradingData: any;
-
-    if (this.state.accounts) {
-      this.state.accounts.map(account => {
-
-      tradingData += (
-          <tr>
-            <td>account.currency</td>
-            <td>account.balance</td>
-            <td>account.available</td>
-            <td>account.hold</td>
-          </tr>
-        );
-      });
-
-    } else {
-      tradingData = <pre>Data not loaded yet..</pre>
-    }
-
     return (
 
       <div>
-      <h1 className='initial'>Current holding</h1>
+      <h1 className="initial">Current holding</h1>
       <table className="table">
         <tbody>
         <tr>
@@ -94,6 +76,7 @@ class Accounts extends React.Component<Props, State> {
         }
         </tbody>
       </table>
+        <DailyStats/>
       </div>
 
     );
