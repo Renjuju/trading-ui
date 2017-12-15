@@ -13,10 +13,15 @@ export function getAccounts() {
   return p;
 }
 
-export async function getDayStats(id: string) {
+export async function getDayStats() {
   const btcStats = await getDailyStats('BTC-USD');
   const ethStats = await getDailyStats('ETH-USD');
   const ltcStats = await getDailyStats('LTC-USD');
+
+  btcStats['type'] = 'BTC-USD';
+  ethStats['type'] = 'ETH-USD';
+  ltcStats['type'] = 'ETH-USD';
+  
   return [btcStats, ethStats, ltcStats];
 }
 
