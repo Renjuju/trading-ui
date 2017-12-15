@@ -53,7 +53,7 @@ class Accounts extends React.Component<Props, State> {
     return (
 
       <div>
-      <h1 className="initial">Current holding</h1>
+      <h2 className="initial align-center">Current holding</h2>
       <table className="table">
         <tbody>
         <tr>

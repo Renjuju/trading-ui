@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Trading from '../services/trading';
+import '../App.css';
 
 interface State {
   dailyStats: [{
@@ -44,23 +45,33 @@ class DailyStats extends React.Component<Props, State> {
   render() {
     return (
       <div>
-      <h2>Daily stats</h2>
-        <div className="row">
-        {
-          this.state.dailyStats.map((stat) => {
-            return (
-              <div className = "col-md-4">
-                <div>{stat.type}</div>
-                <div>high - {stat.high}</div>
-                <div>low - {stat.low}</div>
-                <div>open - {stat.open}</div>
-                <div>volume - {stat.volume}</div>
-                <div>volume_30day - {stat.volume}</div>
-              </div>
-            )
-          })
-        }
-        </div>
+        <h2 className="align-center">Daily stats</h2>
+        <table className="table table-dark table-hover">
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th className="bg-primary">High</th>
+              <th className="bg-danger">Low</th>
+              <th>Open</th>
+              <th>Volume</th>
+              <th>30 day</th>
+            </tr>
+              {
+                this.state.dailyStats.map((stat) => {
+                  return (
+                    <tr>
+                      <th>{stat.type}</th>
+                      <th>${stat.high}</th>
+                      <th>${stat.low}</th>
+                      <th>${stat.open}</th>
+                      <th>${stat.volume}</th>
+                      <th>${stat.volume}</th>
+                    </tr>
+                  )
+                })
+              }
+          </tbody>
+        </table>
       </div>
     );
   }
